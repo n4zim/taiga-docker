@@ -1,0 +1,32 @@
+data:
+  image: tianon/true
+  volumes:
+    - /var/lib/postgresql/data
+    - /usr/local/taiga/media
+    - /usr/local/taiga/static
+    - /usr/local/taiga/logs
+db:
+  image: postgres
+  environment:
+    POSTGRES_USER: taiga
+    POSTGRES_PASSWORD: password
+  volumes_from:
+    - data
+taigaback:
+  image: blendle/taiga-back
+  hostname: dev.example.com
+  environment:
+    SECRET_KEY: examplesecretkey
+  links:
+    - db:postgres
+  volumes_from:
+    - data
+taigafront:
+  image: blendle/taiga-front
+  hostname: dev.example.com
+  links:
+    - taigaback
+  volumes_from:
+    - data
+  ports:
+    - 0.0.0.0:80:80

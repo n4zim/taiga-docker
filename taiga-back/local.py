@@ -8,3 +8,5 @@ from .dockerenv import *
 #    "user": "200/min",
 #    "import-mode": "20/sec"
 #}
+
+INSTALLED_APPS += ["taiga_contrib_slack"]

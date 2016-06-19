@@ -2,4 +2,7 @@
 
 bash /usr/local/taiga/configure
 
+# Enabling Slack Plugin
+sed -i -e 's/\[]/\[\/plugins\/slack\/slack.json]/g' /usr/local/taiga/taiga-front-dist/dist/conf.json
+
 nginx -g "daemon off;"
