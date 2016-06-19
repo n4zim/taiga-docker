@@ -29,7 +29,7 @@ RUN chmod +x /usr/local/taiga/configure /usr/local/taiga/start
 
 # Installing Slack plugin to the frontend
 RUN mkdir -p /usr/local/taiga/taiga-front-dist/dist/plugins
-RUN svn export "https://github.com/taigaio/taiga-contrib-slack/tags/2.1.1" "/usr/local/taiga/taiga-front-dist/dist/plugins/slack" 
+RUN svn export "https://github.com/taigaio/taiga-contrib-slack/tags/2.1.1/front/dist" "/usr/local/taiga/taiga-front-dist/dist/plugins/slack" 
 
 EXPOSE 80 443
 
