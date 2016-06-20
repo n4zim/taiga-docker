@@ -13,16 +13,21 @@ db:
   volumes_from:
     - data
 taigaback:
-  image: blendle/taiga-back
+  image: pedur/taiga-docker-back
   hostname: dev.example.com
   environment:
     SECRET_KEY: examplesecretkey
+    EMAIL_USE_TLS: 1
+    EMAIL_HOST: smtp.gmail.com
+    EMAIL_PORT: 587
+    EMAIL_HOST_USER: example@gmail.com
+    EMAIL_HOST_PASSWORD: example-password
   links:
     - db:postgres
   volumes_from:
     - data
 taigafront:
-  image: blendle/taiga-front
+  image: pedur/taiga-docker-front
   hostname: dev.example.com
   links:
     - taigaback
