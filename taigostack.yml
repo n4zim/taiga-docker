@@ -24,10 +24,11 @@ taigaback:
     EMAIL_HOST: smtp.gmail.com
     EMAIL_PORT: 587
     EMAIL_HOST_USER: example@gmail.com
-    EMAIL_HOST_PASSWORD: example-password
+    EMAIL_HOST_PASSWORD: example
   target_num_containers: 1
   restart: always
   autoredeploy: true
+  deployment_strategy: high_availability
   links:
     - db:postgres
   volumes_from:
@@ -40,6 +41,8 @@ taigafront:
   volumes_from:
     - data
   ports:
-    - 80
+    - "80"
   target_num_containers: 1
   restart: always
+  autoredeploy: true
+  deployment_strategy: high_availability
