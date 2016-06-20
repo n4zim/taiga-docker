@@ -1,4 +1,4 @@
-# htdvisser/taiga-back
+# pedur/taiga-back
 
 [Taiga](https://taiga.io/) is a project management platform for startups and agile developers & designers who want a simple, beautiful tool that makes work truly enjoyable.
 
