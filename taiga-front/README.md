@@ -8,10 +8,10 @@ This project is forked from [htdvisser/taiga-docker](https://github.com/htdvisse
 
 ## Running
 
-A [pedur/taiga-back](https://registry.hub.docker.com/u/pedur/taiga-back/) container should be linked to the taiga-front-dist container. Also connect the volumes of this the taiga-back container if you want to serve the static files for the admin panel.
+A [pedur/taiga-back](https://registry.hub.docker.com/u/pedur/taiga-back/) container should be linked to the taiga-front container. Also connect the volumes of this the taiga-back container if you want to serve the static files for the admin panel.
 
 ```
-docker run --name taiga_front_dist_container_name --link taiga_back_container_name:taigaback --volumes-from taiga_back_container_name pedur/taiga-front-dist
+docker run --name taiga_front_container_name --link taiga_back_container_name:taigaback --volumes-from taiga_back_container_name pedur/taiga-front
 ```
 
 ## Docker-compose
