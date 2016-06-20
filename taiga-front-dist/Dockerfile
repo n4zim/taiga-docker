@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-MAINTAINER Hylke Visser <htdvisser@gmail.com>
+MAINTAINER Peter den Hartog <peterdenhartog@gmail.com>
 
 # Install Git & SVN
 RUN apt-get update && apt-get install -y git subversion && rm -rf /var/lib/apt/lists/*

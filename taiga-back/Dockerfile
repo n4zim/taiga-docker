@@ -1,6 +1,6 @@
 FROM python:3.4
 
-MAINTAINER Hylke Visser <htdvisser@gmail.com>
+MAINTAINER Peter den Hartog <peterdenhartog@gmail.com>
 
 # Install dependencies
 RUN \
