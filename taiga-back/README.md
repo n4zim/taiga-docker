@@ -2,7 +2,7 @@
 
 [Taiga](https://taiga.io/) is a project management platform for startups and agile developers & designers who want a simple, beautiful tool that makes work truly enjoyable.
 
-This Docker image can be used for running the Taiga backend. It works together with the [pedur/taiga-front-dist](https://registry.hub.docker.com/u/pedur/taiga-front-dist/) image.
+This Docker image can be used for running the Taiga backend. It works together with the [pedur/taiga-front](https://hub.docker.com/r/pedur/taiga-docker-front/) image.
 
 This project is forked from [htdvisser/taiga-docker](https://github.com/htdvisser/taiga-docker)
 
