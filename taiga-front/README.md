@@ -16,7 +16,7 @@ docker run --name taiga_front_container_name --link taiga_back_container_name:ta
 
 ## Docker-compose
 
-For a complete taiga installation (``pedur/taiga-back`` and ``pedur/taiga-front-dist``) you can use this docker-compose configuration:
+For a complete taiga installation (``pedur/taiga-back`` and ``pedur/taiga-front``) you can use this docker-compose configuration:
 
 ```
 data:
