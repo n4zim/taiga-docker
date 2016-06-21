@@ -56,6 +56,13 @@ taigafront:
     - data
   ports:
     - 0.0.0.0:80:80
+taigalog:
+  image: gliderlabs/logspout
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  environment:
+    - "HOSTNAME=SYSLOGGER"
+  command: syslog://<REMOTE-SYSLOG-SERVER>
 
 ```
 Make sure to update the credentials and tweak the parameters to your liking.
@@ -113,6 +120,13 @@ taigafront:
   restart: always
   autoredeploy: true
   deployment_strategy: high_availability
+taigalog:
+  image: gliderlabs/logspout
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  environment:
+    - "HOSTNAME=SYSLOGGER"
+  command: syslog://<REMOTE-SYSLOG-SERVER>
 ```
 Make sure to update the credentials and tweak the parameters to your liking.
 
@@ -172,3 +186,12 @@ taigafront:
   * ``/etc/nginx/ssl/`` volume attached with ``ssl.crt`` and ``ssl.key`` files
 * ``SSL_CRT`` SSL certificate value. Valid only when ``SCHEME`` set to https.
 * ``SSL_KEY`` SSL certificate key. Valid only when ``SCHEME`` set to https.
+
+
+## Logging
+
+Note: If you want to setup remote logging, I would recommend using [papertrail](https://papertrailapp.com)
+After creating your account, you can find your log endpoint in [your settings](https://papertrailapp.com/account/destinations)
+Replace <REMOTE-SYSLOG-SERVER> in the above Compose file or Cloud Stack file with the URL found there.
+
+Of course, this can also be a self hosted syslog server.

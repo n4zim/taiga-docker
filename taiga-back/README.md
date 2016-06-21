@@ -13,7 +13,6 @@ A [postgres](https://registry.hub.docker.com/_/postgres/) container should be li
 ```
 docker run --name taiga_back_container_name --link postgres_container_name:postgres pedur/taiga-back
 ```
-
 ## Docker-compose
 
 For a complete taiga installation (``pedur/taiga-back`` and ``pedur/taiga-front-dist``) you can use this docker-compose configuration:
@@ -56,6 +55,13 @@ taigafront:
     - data
   ports:
     - 0.0.0.0:80:80
+taigalog:
+  image: gliderlabs/logspout
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  environment:
+    - "HOSTNAME=SYSLOGGER"
+  command: syslog://<REMOTE-SYSLOG-SERVER>
 
 ```
 Make sure to update the credentials and tweak the parameters to your liking.
@@ -113,6 +119,13 @@ taigafront:
   restart: always
   autoredeploy: true
   deployment_strategy: high_availability
+taigalog:
+  image: gliderlabs/logspout
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+  environment:
+    - "HOSTNAME=SYSLOGGER"
+  command: syslog://<REMOTE-SYSLOG-SERVER>
 ```
 Make sure to update the credentials and tweak the parameters to your liking.
 
@@ -166,3 +179,12 @@ Database configuration:
 * ``POSTGRES_DB_NAME``. Use to override database name.
 * ``POSTGRES_USER``. Use to override user specified in linked postgres container.
 * ``POSTGRES_PASSWORD``. Use to override password specified in linked postgres container.
+
+
+## Logging
+
+Note: If you want to setup remote logging, I would recommend using [papertrail](https://papertrailapp.com)
+After creating your account, you can find your log endpoint in [your settings](https://papertrailapp.com/account/destinations)
+Replace <REMOTE-SYSLOG-SERVER> in the above Compose file or Cloud Stack file with the URL found there.
+
+Of course, this can also be a self hosted syslog server.
