@@ -16,9 +16,10 @@ mkdir -p /etc/nginx/ssl
 [ ! -z "${SSL_CRT}" ] && echo "${SSL_CRT}" > /etc/nginx/ssl/ssl.crt
 [ ! -z "${SSL_KEY}" ] && echo "${SSL_KEY}" > /etc/nginx/ssl/ssl.key
 
-PUBLIC_REGISTER_ENABLED=${PUBLIC_REGISTER_ENABLED:-true}
 API=${API:-/api/v1/}
 DEBUG=${DEBUG:-false}
+DEFAULT_LANGUAGE=${DEFAULT_LANGUAGE:-en}
+PUBLIC_REGISTER_ENABLED=${PUBLIC_REGISTER_ENABLED:-true}
 
 cat > /usr/local/taiga/taiga-front-dist/dist/conf.json <<EOL
 
@@ -29,7 +30,7 @@ cat > /usr/local/taiga/taiga-front-dist/dist/conf.json <<EOL
     "eventsHeartbeatIntervalTime": 60000,
     "debug": $DEBUG,
     "debugInfo": false,
-    "defaultLanguage": "en",
+    "defaultLanguage": "${DEFAULT_LANGUAGE}",
     "themes": ["taiga"],
     "defaultTheme": "taiga",
     "publicRegisterEnabled": ${PUBLIC_REGISTER_ENABLED},
