@@ -3,7 +3,7 @@
 cat > /etc/nginx/upstream.conf <<EOL
 
 upstream taiga-back {
-  server ${TAIGABACK_PORT_8000_TCP_ADDR}:8000;
+  server taiga-back:8000;
 }
 
 EOL
