@@ -23,6 +23,7 @@ DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL:-no-reply@example.com}
 DEBUG=${DEBUG:-False}
 TEMPLATE_DEBUG=${TEMPLATE_DEBUG:-False}
 PUBLIC_REGISTER_ENABLED=${PUBLIC_REGISTER_ENABLED:-True}
+LANG=${LANG:-en_US.UTF-8}
 
 cat > /usr/local/taiga/taiga-back/settings/dockerenv.py <<EOL
 from .common import *
@@ -99,7 +100,7 @@ stderr_stream.backup_count = 4
 TERM=rxvt-256color
 SHELL=/bin/bash
 USER=taiga
-LANG=en_US.UTF-8
+LANG=${LANG}
 HOME=/home/taiga
 PYTHONPATH=/usr/local/lib/python3.4/site-packages
 EOL
