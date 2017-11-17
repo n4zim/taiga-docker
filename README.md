@@ -1,4 +1,4 @@
-# n4zim/taiga-back
+# n4zim/taiga-docker
 [Taiga](https://taiga.io/) is a project management platform for startups and agile developers & designers who want a
 simple, beautiful tool that makes work truly enjoyable.
 

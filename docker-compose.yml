@@ -6,22 +6,24 @@ services:
     environment:
       POSTGRES_USER: taiga
       POSTGRES_PASSWORD: password
-    volumes_from:
-      - data
   back:
-    image: n4zim/docker:back
+    image: n4zim/taiga:back
     container_name: taiga-back
+    environment:
+      HOSTNAME: localhost
     links:
       - postgres
     volumes:
       - /usr/local/taiga/media
       - /usr/local/taiga/static
-      - /usr/local/taiga/logs
   front:
-    image: n4zim/docker:front
+    image: n4zim/taiga:front
+    container_name: taiga-front
+    environment:
+      HOSTNAME: localhost
     links:
-      - back
+      - back:taiga-back
     volumes_from:
       - back
     ports:
-      - 80:80
+      - 8080:80
