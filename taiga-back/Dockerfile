@@ -1,6 +1,6 @@
 FROM python:3.4
 
-MAINTAINER Peter den Hartog <peterdenhartog@gmail.com>
+MAINTAINER Nazim Lachter <nlachter@gmail.com>
 
 # Install dependencies
 RUN \
@@ -30,11 +30,11 @@ ADD ./start /usr/local/taiga/start
 RUN chmod +x /usr/local/taiga/configure /usr/local/taiga/start
 
 # Installing taiga-contrib-slack
-RUN pip install taiga-contrib-slack
+#RUN pip install taiga-contrib-slack
 
-VOLUME /usr/local/taiga/media
-VOLUME /usr/local/taiga/static
-VOLUME /usr/local/taiga/logs
+#VOLUME /usr/local/taiga/media
+#VOLUME /usr/local/taiga/static
+#VOLUME /usr/local/taiga/logs
 
 EXPOSE 8000
 
