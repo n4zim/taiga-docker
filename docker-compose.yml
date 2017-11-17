@@ -5,7 +5,7 @@ services:
     container_name: taiga-postgres
     environment:
       POSTGRES_USER: taiga
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: taiga
   back:
     image: n4zim/taiga:back
     container_name: taiga-back
@@ -21,6 +21,8 @@ services:
     container_name: taiga-front
     environment:
       HOSTNAME: localhost
+    depends_on:
+      - back
     links:
       - back:taiga-back
     volumes_from:

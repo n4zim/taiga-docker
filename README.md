@@ -65,7 +65,7 @@ And enter your container with ``docker-cloud container exec taigaback-1 bash``
 * ``LANG`` defaults to ``"en_US.UTF-8"``
 
 Database configuration :
-* ``POSTGRES_HOST``. Use to override database host.
+* ``POSTGRES_HOST``. defaults to ``"postgres"``
 * ``POSTGRES_PORT`` defaults to ``"5432"``
 * ``POSTGRES_NAME``. Use to override database name.
 * ``POSTGRES_USER``. Use to override user specified in linked postgres container.
