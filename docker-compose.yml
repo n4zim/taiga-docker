@@ -1,0 +1,27 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    container_name: taiga-postgres
+    environment:
+      POSTGRES_USER: taiga
+      POSTGRES_PASSWORD: password
+    volumes_from:
+      - data
+  back:
+    image: n4zim/docker:back
+    container_name: taiga-back
+    links:
+      - postgres
+    volumes:
+      - /usr/local/taiga/media
+      - /usr/local/taiga/static
+      - /usr/local/taiga/logs
+  front:
+    image: n4zim/docker:front
+    links:
+      - back
+    volumes_from:
+      - back
+    ports:
+      - 80:80
