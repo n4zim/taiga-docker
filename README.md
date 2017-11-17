@@ -23,26 +23,25 @@ docker run --name taiga-front --link taiga-back n4zim/taiga:front
 ```
 
 ## Docker-compose
-For a complete Taiga installation (``n4zim/taiga:back`` and ``n4zim/taiga:front``) you can use the docker-compose.yml
-included file configuration.
+For a complete Taiga installation (``n4zim/taiga:back`` and ``n4zim/taiga:front``) you can use the
+``docker-compose.yml`` included file.
 
 Make sure to update the credentials and tweak the parameters to your liking.
 
 ## Database Initialization
-To initialize the database, use ``docker exec -it taiga-back bash`` and execute the following commands :
+To initialize the database, use the script ``/usr/local/taiga/init`` and execute it on taiga-back.
 Or, find the name of your running Docker container with ``docker ps``.
 
 ```bash
-cd /usr/local/taiga/taiga-back/
-python manage.py loaddata initial_user
-python manage.py loaddata initial_project_templates
-python manage.py loaddata initial_role
-```
+docker exec taiga-back /usr/local/taiga/init
+``` 
 
 If you want to do this on Docker Cloud you will need to find the name of your running instance with
 ``docker-cloud container ps``
 
-And enter your container with ``docker-cloud container exec taigaback-1 bash``
+```bash
+docker-cloud container exec taiga-back /usr/local/taiga/init
+``` 
 
 ## Environment
 
