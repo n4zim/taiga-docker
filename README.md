@@ -61,6 +61,8 @@ docker-cloud container exec taiga-back /usr/local/taiga/init
 * ``DEBUG`` defaults to ``False``
 * ``TEMPLATE_DEBUG`` defaults to ``False``
 * ``PUBLIC_REGISTER_ENABLED`` defaults to ``True``
+* ``INSTALLED_APPS`` defaults to ``[]``
+* ``WEBHOOKS_ENABLED`` defaults to ``False``
 * ``LANG`` defaults to ``"en_US.UTF-8"``
 
 Database configuration :
